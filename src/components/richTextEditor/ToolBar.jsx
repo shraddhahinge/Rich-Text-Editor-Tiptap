@@ -5,25 +5,37 @@ function ToolBar({ editor, align }) {
     return (
       <button
         key={item.title}
-        className={`w-8 h-8 ring-2 ring-gray-300 ${
-          item.isActive && "focus:outline-none focus:ring-3 focus:ring-gray-500"
-        } cursor-pointer border-none rounded-lg p-1 mr-2 bg-gray-300`}
-        onClick={() => item.action(editor)}
+        className="w-8 h-8 ring-2 ring-gray-600   hover:bg-black focus:bg-black  cursor-pointer border-none rounded-lg p-1 mr-2 bg-gray-300"
+        onClick={() =>
+          item.action ? item.action(editor) : console.log("clicked")
+        }
       >
         {item.icon}
       </button>
     );
   });
 
-  // const
+  const richExtensionTool = Extensions.RichExtensions.map((item) => {
+    return (
+      <button
+        key={item.title}
+        className="w-8 h-8 ring-2 ring-gray-600   hover:bg-black focus:bg-black  cursor-pointer border-none rounded-lg p-1 mr-2 bg-gray-300"
+        onClick={() =>
+          item.action ? item.action(editor) : console.log("clicked")
+        }
+      >
+        {item.icon}
+      </button>
+    );
+  });
   if (!editor) {
     return null;
   }
 
   return (
-    <div className="flex items-center justify-items-stretch p-2   ">
+    <div className="flex items-center space-x-2  p-2 divide-x-4 divide-black divide-solid  ">
       <div>{textExtensionTool}</div>
-      <div></div>
+      <div className="pl-4">{richExtensionTool}</div>
       {/* <button className="w-50 bg-blue-500 p-1">Bold</button> */}
     </div>
   );

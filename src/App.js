@@ -1,7 +1,7 @@
 import "./App.css";
 import Header from "./components/Header";
 import RichTextEditor from "./components/richTextEditor/RichTextEditor";
-
+// import Picker from "emoji-picker-react";
 function App() {
   return (
     <div>
@@ -9,6 +9,9 @@ function App() {
         <Header />
         <RichTextEditor />
       </div>
+      {/* <div>
+        <Picker />
+      </div> */}
     </div>
   );
 }
